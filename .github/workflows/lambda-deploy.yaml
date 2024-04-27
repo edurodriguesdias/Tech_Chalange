@@ -10,8 +10,11 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v2
 
-      - name: Install Dependencies
-        run: pip install -r requirements/requirements.txt
+      - name: Create venv
+        run: python -m venv venv
+
+      - name: Activate venv and Install Dependencies
+        run: source venv/bin/activate && pip install -r requirements/requirements.txt
 
       - name: Zip
         run: (zip -r lambda-api.zip .)
