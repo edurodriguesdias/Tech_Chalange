@@ -14,7 +14,7 @@ jobs:
         run: python -m venv venv
 
       - name: Activate venv and Install Dependencies
-        run: source venv/bin/activate && pip install -r requirements/requirements.txt
+        run: source venv/bin/activate && pip install -r requirements/requirements.txt --ignore-installed
 
       - name: Zip
         run: (zip -r lambda-api.zip .)
