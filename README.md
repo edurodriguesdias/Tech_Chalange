@@ -63,3 +63,5 @@ http://localhost:8000/docs
 
 # Testes
 Após o container subir a api, basta realizar uma requisição nos diferentes endpoints que a api oferece. O notebook "testes.ipynb" contém todos os testes para serem executados apenas rodando as células.
+
+
