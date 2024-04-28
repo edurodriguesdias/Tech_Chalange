@@ -1,5 +1,7 @@
 name: Lambda API Deploy
 on:
+  pull_request:
+    branches: [ Master, master, main, terraform ]
   push:
     branches: [ Master, master, main, terraform ]
 jobs:
