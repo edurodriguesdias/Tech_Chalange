@@ -1,9 +1,9 @@
-name: Lambda API Deploy
+name: Terraform Validate and Plan | Pull Request
 on:
   pull_request:
-    branches: [ Master, master, main, terraform ]
+    branches: [ terraform ]
 jobs:
-  deploy:
+  terraform_provisioning:
     runs-on: ubuntu-latest
     environment: production
     steps:

@@ -27,3 +27,4 @@ async def get_exportacao():
     return scrap.get_data("http://vitibrasil.cnpuv.embrapa.br/download/ExpVinho.csv")
 
 handler = Mangum(app)
+
