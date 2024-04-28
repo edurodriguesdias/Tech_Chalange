@@ -8,6 +8,9 @@ venv/
 env/
 ENV/
 
+#package
+package/
+
 # IDE-specific files
 .idea/
 .vscode/
