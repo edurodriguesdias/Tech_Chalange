@@ -8,4 +8,4 @@ RUN pip install -r requirements/requirements.txt --ignore-installed
 
 WORKDIR /app
 
-CMD ["src.handler"]
+CMD ["main.handler"]
