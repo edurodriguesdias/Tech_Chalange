@@ -7,39 +7,35 @@ jobs:
     runs-on: ubuntu-latest
     environment: production
     steps:
+      - uses: actions/checkout@v4
+      - uses: hashicorp/setup-terraform@v3
+
       - name: Checkout Code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Terraform Init
-        uses: hashicorp/terraform-github-actions/init@v0.8.0
+        id: terraform-init
+        run: terraform init
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          TF_ACTION_WORKING_DIR: './terraform'
+          TF_ACTION_WORKING_DIR: 'terraform'
           AWS_ACCESS_KEY_ID:  ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY:  ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
       - name: Terraform Validate
-        uses: hashicorp/terraform-github-actions/validate@v0.8.0
+        run: terraform validate
+#
+#      - name: Install Dependencies
+#        run: pip install -r requirements/requirements.txt
+#
+#      - name: Zip
+#        run: (zip -r lambda-api.zip .)
 
-      - name: Terraform Apply
-        uses: hashicorp/terraform-github-actions/apply@v0.8.0
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          TF_ACTION_WORKING_DIR: './terraform'
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-
-      - name: Install Dependencies
-        run: pip install -r requirements/requirements.txt
-
-      - name: Zip
-        run: (zip -r lambda-api.zip .)
-
-      - name: Deploying lambda
-        uses: appleboy/lambda-action@master
-        with:
-          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws_region: us-east-1
-          function_name: lambda-tech-challenge-api
-          zip_file: ./lambda-api.zip
+#      - name: Deploying lambda
+#        uses: appleboy/lambda-action@master
+#        with:
+#          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+#          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+#          aws_region: us-east-1
+#          function_name: lambda-tech-challenge-api
+#          zip_file: ./lambda-api.zip
