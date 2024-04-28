@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from scrapping import DirectScrapper
+from src.scrapping.scrapping import DirectScrapper
 from mangum import Mangum
 
 scrap = DirectScrapper()

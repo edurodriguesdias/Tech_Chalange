@@ -8,6 +8,6 @@ RUN pip install -r requirements/requirements.txt --ignore-installed
 
 WORKDIR /app
 
-EXPOSE 8000
+EXPOSE 80
 
 CMD ["src.main.handler"]
