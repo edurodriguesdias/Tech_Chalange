@@ -28,7 +28,13 @@ docker-compose up -d
 **Instalar depêndencias do projeto**
 
 ```
-docker-compose exec web pip install -r ../requirements/requirements.txt
+docker-compose exec web pip install -r requirements/requirements.txt --target package
+```
+
+**Acessar o container**
+
+```
+docker exec -it tech_chalange-web-1 bash
 ```
 
 **Limpar cache**
