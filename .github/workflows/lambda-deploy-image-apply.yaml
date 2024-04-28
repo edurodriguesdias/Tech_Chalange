@@ -1,0 +1,4 @@
+name: Lambda Deploy - Image Apply
+on:
+  push:
+    branches: [ Master, master, main, terraform ]
