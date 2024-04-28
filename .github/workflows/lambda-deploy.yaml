@@ -1,7 +1,7 @@
 name: Lambda API Deploy
 on:
   push:
-    branches: [ Master, master, main ]
+    branches: [ Master, master, main, terraform ]
 jobs:
   deploy:
     runs-on: ubuntu-latest
